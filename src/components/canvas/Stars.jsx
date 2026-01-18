@@ -7,7 +7,14 @@ const Stars = (props) => {
     const ref = useRef();
 
     // Generate random points in a sphere
-    const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
+    const [sphere] = useState(() => {
+        const data = random.inSphere(new Float32Array(5001), { radius: 1.2 });
+        // Validate to remove potential NaNs (though rare with correct size)
+        for (let i = 0; i < data.length; i++) {
+            if (isNaN(data[i])) data[i] = 0;
+        }
+        return data;
+    });
 
     useFrame((state, delta) => {
         // Rotation animation
