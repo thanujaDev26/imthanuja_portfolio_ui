@@ -1,82 +1,63 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
-const projects = [
-    {
-        title: "Cloud Infrastructure Dashboard",
-        category: "AWS / React",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    },
-    {
-        title: "Neon E-Commerce Platform",
-        category: "Next.js / Stripe",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop",
-    },
-    {
-        title: "AI Image Generator",
-        category: "Python / React",
-        image: "https://images.unsplash.com/photo-1620641788421-7f1c91ade639?q=80&w=2672&auto=format&fit=crop",
-    },
-    {
-        title: "Fintech Mobile App",
-        category: "Flutter / Firebase",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-    },
-];
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Projects = () => {
+    const targetRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start start", "end end"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 1], [0.8, 2]);
+    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+    const loaderOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
+
     return (
-        <section id="projects" className="py-20 px-6 sm:px-16 lg:px-24 bg-black relative">
-            <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-dark-100 to-transparent pointer-events-none" />
+        <section ref={targetRef} className="relative h-[150vh] bg-black" id="projects">
+            <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
 
-            <div className="max-w-screen-2xl mx-auto">
-                <motion.h2
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="text-neon-violet font-mono text-xl tracking-wider mb-2"
-                >
-                    03. FEATURED WORKS
-                </motion.h2>
-                <motion.h3
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="text-4xl font-bold text-white mb-16"
-                >
-                    Built to scale
-                </motion.h3>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-black to-black" />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2 }}
-                            whileHover={{ y: -10 }}
-                            className="group relative h-[300px] sm:h-[400px] rounded-3xl overflow-hidden cursor-default shadow-2xl"
-                        >
-                            {/* Background Image */}
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                <motion.div
+                    style={{ scale }}
+                    className="relative w-full h-full flex items-center justify-center"
+                >
+                    <div className="absolute w-[20vw] h-[20vw] min-w-[200px] min-h-[200px] rounded-full bg-white blur-[80px] opacity-10 mix-blend-screen" />
+
+                    <motion.div style={{ opacity }} className="absolute z-10 text-center">
+                        <h3 className="text-5xl sm:text-7xl font-bold text-white tracking-tighter">
+                            ENTER THE<br />GALAXY
+                        </h3>
+                        <p className="text-gray-400 mt-4 animate-bounce">Scroll to Warp</p>
+                    </motion.div>
+
+                    <motion.div
+                        style={{ opacity: loaderOpacity }}
+                        className="absolute flex flex-col items-center justify-center gap-6"
+                    >
+                        <div className="relative w-24 h-24 sm:w-32 sm:h-32">
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ repeat: Infinity, ease: "linear", duration: 2 }}
+                                className="absolute inset-0 rounded-full border-t-2 border-l-2 border-neon-cyan opacity-80"
+                            />
+                            <motion.div
+                                animate={{ rotate: -360 }}
+                                transition={{ repeat: Infinity, ease: "linear", duration: 3 }}
+                                className="absolute inset-2 rounded-full border-b-2 border-r-2 border-neon-violet opacity-80"
                             />
 
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-
-                            {/* Content */}
-                            <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                <p className="text-neon-cyan text-sm font-bold tracking-widest mb-2 uppercase">{project.category}</p>
-                                <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2">{project.title}</h4>
-                                <div className="h-1 w-0 bg-neon-violet group-hover:w-full transition-all duration-500 delay-100" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
+                        </div>
+
+                        <div className="text-center">
+                            <h4 className="text-white font-bold text-xl tracking-wider">INITIALIZING</h4>
+                            <p className="text-neon-cyan font-mono text-xs mt-2 animate-pulse">SEARCHING FOR PROJECTS...</p>
+                        </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );
