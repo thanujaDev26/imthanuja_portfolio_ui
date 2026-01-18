@@ -17,17 +17,19 @@ const About = () => {
                     transition={{ duration: 0.8 }}
                     className="flex-1 w-full max-w-md"
                 >
-                    <Tilt className="Tilt" options={{ max: 25, scale: 1.05, speed: 400 }}>
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden glass border-0 ring-1 ring-white/10 group">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-neon-violet/20 to-transparent z-10 group-hover:opacity-0 transition-opacity duration-500" />
+                    <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center">
+                        <motion.div
+                            animate={{ y: [-20, 10, -20] }}
+                            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                            className="relative w-full h-full"
+                        >
                             <img
-                                src="/images/avatar.png"
-                                alt="Profile"
-                                className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
+                                src="/images/astro-me.png"
+                                className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(56,189,248,0.3)]"
+                                alt="Thanuja as Astronaut"
                             />
-                            <div className="absolute -inset-2 bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-                        </div>
-                    </Tilt>
+                        </motion.div>
+                    </div>
                 </motion.div>
 
 
@@ -49,25 +51,17 @@ const About = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-4 pt-4">
-                        {/* <button className="flex items-center gap-2 px-6 py-3 bg-white text-dark font-bold rounded-lg hover:bg-neon-cyan transition-colors duration-300">
-                            Download CV <FaDownload />
-                        </button> */}
+
                         <a
                             href="/pdf/Thanuja.pdf"
                             download
-                            className="flex items-center gap-2 px-6 py-3 bg-white text-dark font-bold rounded-lg hover:bg-neon-cyan transition-colors duration-300"
+                            className="group flex items-center gap-3 px-8 py-3 bg-black/50 backdrop-blur-md border border-neon-cyan/50 text-neon-cyan font-mono font-bold rounded-full hover:bg-neon-cyan/10 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 tracking-widest uppercase"
                         >
-                            Download My CV <FaDownload />
+                            <span>COLLECT ARTIFACT</span>
+                            <FaDownload className="group-hover:translate-y-1 transition-transform" />
                         </a>
 
 
-                        {/* <div className="flex gap-4 items-center pl-4">
-                            {[FaLinkedin, FaGithub, FaFacebook, FaInstagram].map((Icon, idx) => (
-                                <a key={idx} href="#" className="text-2xl text-gray-400 hover:text-white hover:text-neon-violet transition-colors duration-300">
-                                    <Icon />
-                                </a>
-                            ))}
-                        </div> */}
                         <div className="flex gap-4 items-center pl-4">
                             <a
                                 href="https://www.linkedin.com/in/thanuja-priyadarshane/"

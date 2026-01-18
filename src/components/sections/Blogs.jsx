@@ -4,7 +4,7 @@ import { IoClose } from 'react-icons/io5';
 import { FaClock, FaCalendarAlt } from 'react-icons/fa';
 import axios from 'axios';
 
-// Static array for display info (as requested)
+
 const staticBlogs = [
     {
         id: 1,
@@ -40,7 +40,6 @@ const BlogModal = ({ blogId, onClose }) => {
     React.useEffect(() => {
         const fetchBlog = async () => {
             try {
-                // Using the requested API endpoint
                 const response = await axios.get(`https://api.imthanuja.com/blogs/${blogId}`);
                 console.log(response.data);
                 setContent(response.data);
@@ -48,7 +47,6 @@ const BlogModal = ({ blogId, onClose }) => {
             } catch (err) {
                 console.error("Failed to fetch blog, using fallback content for demo.", err);
                 setError(true);
-                // Fallback for demo purposes since the API likely doesn't exist yet for me
                 setTimeout(() => {
                     setContent({
                         title: "Demo Blog Content (API Failed)",
@@ -75,7 +73,6 @@ const BlogModal = ({ blogId, onClose }) => {
                 exit={{ scale: 0.9, opacity: 0 }}
                 className="w-full max-w-4xl h-[80vh] bg-dark-200 border border-white/10 rounded-2xl overflow-hidden relative flex flex-col shadow-2xl"
             >
-                {/* Header */}
                 <div className="flex justify-between items-center p-6 border-b border-white/5 bg-dark-200">
                     <span className="text-neon-cyan font-mono text-sm">BLOG READER</span>
                     <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
@@ -83,7 +80,6 @@ const BlogModal = ({ blogId, onClose }) => {
                     </button>
                 </div>
 
-                {/* Content */}
                 <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
                     {loading ? (
                         <div className="flex justify-center items-center h-full">
@@ -94,7 +90,6 @@ const BlogModal = ({ blogId, onClose }) => {
                             <h1 className="text-3xl font-bold text-white">{content?.title || "Untitled"}</h1>
                             <div className="prose prose-invert max-w-none text-gray-300">
                                 <p>{content?.body || "No content available."}</p>
-                                {/* If content is HTML, use dangerouslySetInnerHTML safely */}
                             </div>
 
                             <div className="pt-8 flex justify-center">
