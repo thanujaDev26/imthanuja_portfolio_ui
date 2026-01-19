@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaJava, FaJs, FaDocker, FaAws, FaGoogle, FaGithub, FaPython, FaReact } from 'react-icons/fa';
+import { FaJava, FaJs, FaDocker, FaAws, FaGoogle, FaPython } from 'react-icons/fa';
 
 
 const SHAPES = {
@@ -69,7 +69,7 @@ const Technology = () => {
                                     className={`relative ${tech.size} backdrop-blur-md bg-white/5 border border-white/20 flex flex-col justify-center items-center gap-2 cursor-pointer transition-colors duration-500 overflow-hidden group-hover:bg-white/10`}
                                     style={{
                                         ...styleObject,
-                                        boxShadow: isBorderRadius ? "0 0 30px rgba(0,0,0,0.5)" : "none" // Clip-path cuts shadow, so we use drop-shadow on parent if needed, strictly clip-path here for shape
+                                        boxShadow: isBorderRadius ? "0 0 30px rgba(0,0,0,0.5)" : "none" 
                                     }}
                                 >
                                     <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:10px_10px] opacity-20 pointer-events-none" />

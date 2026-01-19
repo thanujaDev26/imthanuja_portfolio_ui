@@ -26,7 +26,7 @@ const Projects = () => {
 
                     <motion.div style={{ opacity }} className="absolute z-10 text-center">
                         <h3 className="text-5xl sm:text-7xl font-bold text-white tracking-tighter">
-                            ENTER THE<br />GALAXY
+                            Enter the<br />Galaxy
                         </h3>
                         <p className="text-gray-400 mt-4 animate-bounce">Scroll to Warp</p>
                     </motion.div>
@@ -53,8 +53,8 @@ const Projects = () => {
                         </div>
 
                         <div className="text-center">
-                            <h4 className="text-white font-bold text-xl tracking-wider">INITIALIZING</h4>
-                            <p className="text-neon-cyan font-mono text-xs mt-2 animate-pulse">SEARCHING FOR PROJECTS...</p>
+                            <h4 className="text-white font-bold text-xl tracking-wider">Initializing</h4>
+                            <p className="text-gray-500 font-bold text-xs mt-2 animate-pulse">Searching for Projects...</p>
                         </div>
                     </motion.div>
                 </motion.div>
