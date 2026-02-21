@@ -1,6 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaJava, FaJs, FaDocker, FaAws, FaGoogle, FaPython } from 'react-icons/fa';
+import { 
+  FaJs, 
+  FaDocker, 
+  FaGoogle, 
+  FaPython 
+} from 'react-icons/fa';
+
+import { 
+  SiGo, 
+  SiTerraform, 
+  SiGooglecloud 
+} from 'react-icons/si';
 
 
 const SHAPES = {
@@ -12,12 +23,41 @@ const SHAPES = {
 };
 
 const technologies = [
-    { name: "Java", icon: FaJava, color: "#f89820", shape: "shard", size: "w-32 h-32" },
-    { name: "JavaScript", icon: FaJs, color: "#f7df1e", shape: "asteroid", size: "w-36 h-36" },
-    { name: "Python", icon: FaPython, color: "#f7df1e", shape: "crystal", size: "w-32 h-36" },
-    { name: "Docker", icon: FaDocker, color: "#2496ed", shape: "monolith", size: "w-28 h-40" },
-    { name: "AWS", icon: FaAws, color: "#ff9900", shape: "asteroid", size: "w-36 h-36" },
-    { name: "GCP", icon: FaGoogle, color: "#4285f4", shape: "crystal", size: "w-32 h-36" },
+  {
+    name: "Go",
+    icon: SiGo,
+    color: "#00ADD8",
+    shape: "shard",
+    size: "w-32 h-32",
+  },
+  {
+    name: "Python",
+    icon: FaPython,
+    color: "#3776AB",
+    shape: "crystal",
+    size: "w-32 h-36",
+  },
+  {
+    name: "JavaScript",
+    icon: FaJs,
+    color: "#F7DF1E",
+    shape: "asteroid",
+    size: "w-36 h-36",
+  },
+  {
+    name: "Terraform",
+    icon: SiTerraform,
+    color: "#7B42BC",
+    shape: "crystal",
+    size: "w-32 h-36",
+  },
+  {
+    name: "Google Cloud",
+    icon: SiGooglecloud,
+    color: "#4285F4",
+    shape: "shard",
+    size: "w-32 h-32",
+  },
 ];
 
 const Technology = () => {
