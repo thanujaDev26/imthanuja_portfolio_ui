@@ -7,6 +7,7 @@ import Projects from './components/sections/Projects';
 import Blogs from './components/sections/Blogs';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
+import Experience from './components/sections/Experience';
 
 function App() {
     return (
@@ -15,7 +16,8 @@ function App() {
             <Hero />
             <About />
             <Technology />
-            <Projects />
+            <Experience/>
+            {/* <Projects /> */}
             <Blogs />
             <Contact />
             <Footer />

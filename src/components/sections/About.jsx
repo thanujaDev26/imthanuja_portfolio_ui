@@ -52,14 +52,14 @@ const About = () => {
 
                     <div className="flex flex-wrap gap-4 pt-4">
 
-                        <a
+                        {/* <a
                             href="/pdf/Thanuja.pdf"
                             download
                             className="group flex items-center gap-3 px-8 py-3 bg-black/50 backdrop-blur-md border border-neon-cyan/50 text-neon-cyan font-mono font-bold rounded-full hover:bg-neon-cyan/10 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 tracking-widest"
                         >
                             <span>Collect Artifact</span>
                             <FaDownload className="group-hover:translate-y-1 transition-transform" />
-                        </a>
+                        </a> */}
 
 
                         <div className="flex gap-4 items-center pl-4">

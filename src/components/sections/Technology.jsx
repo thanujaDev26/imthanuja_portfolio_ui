@@ -4,7 +4,8 @@ import {
   FaJs, 
   FaDocker, 
   FaGoogle, 
-  FaPython 
+  FaPython,
+  FaGithub
 } from 'react-icons/fa';
 
 import { 
@@ -45,19 +46,26 @@ const technologies = [
     size: "w-36 h-36",
   },
   {
-    name: "Terraform",
-    icon: SiTerraform,
-    color: "#7B42BC",
+    name: "Docker",
+    icon: FaDocker,
+    color: "#2496ED",
     shape: "crystal",
     size: "w-32 h-36",
   },
   {
     name: "Google Cloud",
     icon: SiGooglecloud,
-    color: "#4285F4",
+    color: "#60A5FA",
     shape: "shard",
     size: "w-32 h-32",
   },
+  {
+  name: "GitHub",
+  icon: FaGithub,
+  color: "#E5E7EB",
+  shape: "crystal",
+  size: "w-32 h-36",
+}
 ];
 
 const Technology = () => {
