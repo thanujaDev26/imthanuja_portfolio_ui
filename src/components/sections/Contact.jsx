@@ -124,13 +124,15 @@ const Contact = () => {
                                 placeholder="Hi Thanuja, I have a project idea..."
                             />
                         </div>
-                        <button
-                            type="submit"
-                            disabled={status === 'loading'}
-                            className="group flex items-center gap-3 px-8 py-3 bg-black/50 backdrop-blur-md border border-neon-cyan/50 text-neon-cyan font-mono font-bold rounded-full hover:bg-neon-cyan/10 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 tracking-widest"
-                        >
-                            {status === 'loading' ? 'Sending...' : <>Send Message <FaPaperPlane /></>}
-                        </button>
+                        <div className="flex justify-center">
+                            <button
+                                type="submit"
+                                disabled={status === 'loading'}
+                                className="px-8 py-3 bg-white text-black font-semibold rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50"
+                            >
+                                {status === 'loading' ? 'Sending...' : 'Send Message'}
+                            </button>
+                        </div>
                     </form>
                 </motion.div>
             </div>

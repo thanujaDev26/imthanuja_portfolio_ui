@@ -4,10 +4,34 @@ import StarsCanvas from '../../components/canvas/Stars';
 import { FaArrowDown } from 'react-icons/fa';
 
 const titles = [
-    "I'm a Software Engineer",
-    "DevOps Engineer",
-    "I build scalable systems",
-    "I turn your name into a brand.",
+  "Stay hungry, stay foolish. — Steve Jobs",
+  "Your margin is my opportunity. — Jeff Bezos",
+  "It’s always Day 1. — Jeff Bezos",
+  "Price is what you pay. Value is what you get. — Warren Buffett",
+  "Innovation distinguishes between a leader and a follower. — Steve Jobs",
+];
+
+const quotes = [
+  {
+    text: "Stay hungry, stay foolish.",
+    author: "Steve Jobs",
+  },
+  {
+    text: "Your margin is my opportunity.",
+    author: "Jeff Bezos",
+  },
+  {
+    text: "It’s always Day 1.",
+    author: "Jeff Bezos",
+  },
+  {
+    text: "Price is what you pay. Value is what you get.",
+    author: "Warren Buffett",
+  },
+  {
+    text: "Innovation distinguishes between a leader and a follower.",
+    author: "Steve Jobs",
+  },
 ];
 
 const Hero = () => {
@@ -16,7 +40,7 @@ const Hero = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % titles.length);
-        }, 3000);
+        }, 5000);
         return () => clearInterval(interval);
     }, []);
 
@@ -41,20 +65,26 @@ const Hero = () => {
                 </motion.p>
 
                 {/* Morphing Text */}
-                <div className="h-20 sm:h-32 flex items-center justify-center">
+                <div className="h-28 sm:h-36 flex flex-col items-center justify-center">
                     <AnimatePresence mode="wait">
-                        <motion.h1
-                            key={index}
-                            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-xl"
+                        <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-center"
                         >
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan to-neon-violet">
-                                {titles[index]}
-                            </span>
-                        </motion.h1>
+                        {/* Quote */}
+                        <p className="text-xl sm:text-2xl md:text-3xl italic text-gray-300 font-light">
+                            “{quotes[index].text}”
+                        </p>
+
+                        {/* Author */}
+                        <p className="mt-3 text-sm sm:text-base text-gray-500 tracking-wide">
+                            — {quotes[index].author}
+                        </p>
+                        </motion.div>
                     </AnimatePresence>
                 </div>
 

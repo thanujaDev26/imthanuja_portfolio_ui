@@ -50,7 +50,7 @@ const calculateDuration = (start, end) => {
 
 const Experience = () => {
   return (
-    <section className="bg-black py-32 px-6" id="experience">
+    <section className="bg-black py-32 px-6" id="experiences">
       <div className="max-w-4xl mx-auto relative">
 
         <motion.h2
